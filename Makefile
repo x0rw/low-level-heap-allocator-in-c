@@ -1,4 +1,4 @@
-all:program
+all:program run
 
 
 program: main.o 
