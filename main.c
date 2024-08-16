@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define MALLOC_ALIGNMENT \
-  (__alignof__ (double) > sizeof (size_t) ? __alignof__ (double) : sizeof (size_t))
-
-#define MALLOC_HEADER_SIZE			\
-  (MALLOC_ALIGNMENT < sizeof (size_t)		\
-   ? sizeof (size_t)				\
-   : MALLOC_ALIGNMENT)
 struct header {
     size_t size;
     unsigned free;
