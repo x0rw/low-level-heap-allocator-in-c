@@ -1,8 +1,8 @@
 all:program run
 
 
-program: main.o arena.o
-	gcc build/main.o build/arena.o -std=c99 -lm  -g -o bin/main
+program: main.o arena.o allocator.o
+	gcc build/main.o build/arena.o build/allocator.o -std=c99 -lm  -g -o bin/main
 
 
 main.o: main.c 
@@ -10,6 +10,9 @@ main.o: main.c
 
 arena.o: src/arena.c 
 	gcc -c src/arena.c -o build/arena.o -ggdb -g 
+
+allocator.o: src/allocator.c 
+	gcc -c src/allocator.c -o build/allocator.o -ggdb -g 
 
 clean:
 	rm build/*.o 
