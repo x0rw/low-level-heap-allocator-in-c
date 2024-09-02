@@ -33,6 +33,7 @@ void * _arena_free_block(size_t size, struct arena_h * ah){
 
   while(current_block){ 
     /* First Fit algo*/
+    //printf("\n res %d",current_block->reserved);
     if(!current_block->reserved && current_block->size>= size){
       tmp_b->next = current_block;        
        return (void * )current_block; 
@@ -44,7 +45,7 @@ void * _arena_free_block(size_t size, struct arena_h * ah){
   // there will be issues when we move between arenas
   current_block = (void *)tmp_b + tmp_b->size + sizeof(struct alloc_block); 
   int rem_size = ah->size - ((void *)current_block - arena_head);
-  printf("\n size : %d\t rem_size: %d \n", size, rem_size); 
+  //printf("\n size : %d\t rem_size: %d \n", size, rem_size); 
   if(size <= rem_size ){
     tmp_b->next = current_block;   
     return (void *)current_block;

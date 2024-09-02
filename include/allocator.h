@@ -8,4 +8,5 @@ struct alloc_block{
   struct alloc_block * next;
 };
 void * allocate(size_t);
+void  free_alloc();
 #endif

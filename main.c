@@ -1,29 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <gtk/gtk.h>
 #include "include/allocator.h"
-/*          ARENA
- *  arena contains the head (struct header) of the first 
- *  allocation 
- *  
- *  every alloc is a struct in arena with header 
- *  
- * 
- *  the alloc header contains the size and the resered flag
- *  when we allocate we check each block until we find a free one
- *  we set it as reserved
- *  after each free we merge the free blocks together
- *
-*
- *
- *----------HEADER----------
- *
- * 
- *
- *
- * 
- *
- * ---------FOOTER----------| 1 byte to detect memory corruption
- * */
 
 
 
@@ -131,11 +109,12 @@ int main(){
   void * afbaw = allocate(2);
   void * afbad = allocate(1);
   void * afbads = allocate(100);
+  free_alloc(afbads);
+  init_worker();
   void * afbadsq = allocate(100);
   void * afbadswq = allocate(100);
-  void * afbadsdf = allocate(100);
-  void * afbadsjk = allocate(100);
-  printf("%p\n",afbaw);
+
+  //printf("%p\n",afbaw);
   arena_dump(arena_base);
   // int *i1, *i2;
   // char * mem = alloc(8);
