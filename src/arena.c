@@ -60,7 +60,7 @@ void * _arena_free_block(size_t size, struct arena_h * ah){
 void arena_dump(struct arena_h * ah){
   struct alloc_block * current_block = ah->head;
   while(current_block){ 
-    printf("\n size = %d \t reserved: %d", current_block->size,current_block->reserved);
+    printf("\n size = %ld \t reserved: %d", current_block->size,current_block->reserved);
     current_block = current_block->next;
   }
 

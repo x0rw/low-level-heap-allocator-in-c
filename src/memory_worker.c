@@ -16,7 +16,7 @@ void merge_alloc_blocks(struct arena_h * arena){
 
 }
 void * _run_order(void * args){
-    printf("arena_base %d", arena_base);
+    printf("arena_base %p", arena_base);
 
 }
 void init_worker(){

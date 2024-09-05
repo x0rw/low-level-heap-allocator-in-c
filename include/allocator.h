@@ -1,6 +1,7 @@
 #ifndef ALLOCATOR_H
 #define ALLOCATOR_H
 #include <unistd.h>
+#include <stdlib.h>
 #include "arena.h"
 struct alloc_block{
   size_t size;

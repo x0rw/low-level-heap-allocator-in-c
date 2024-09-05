@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "arena.h": "c",
+        "allocator.h": "c",
+        "stdlib.h": "c"
+    }
+}

@@ -6,7 +6,7 @@ program: main.o arena.o allocator.o memory_worker.o
 
 
 main.o: main.c 
-	gcc -c main.c -o build/main.o -ggdb -g 
+	gcc `pkg-config --cflags gtk+-2.0` `dpkg-config --libc gtk+-2.0` -c main.c -o build/main.o -ggdb -g 
 
 arena.o: src/arena.c 
 	gcc -c src/arena.c -o build/arena.o -ggdb -g 
