@@ -8,6 +8,12 @@ program: main.o arena.o allocator.o memory_worker.o
 main.o: main.c 
 	gcc `pkg-config --cflags gtk+-2.0` `dpkg-config --libc gtk+-2.0` -c main.c -o build/main.o -ggdb -g 
 
+
+testgtk: testgtk.c 
+	gcc testgtk.c -o testgtk  `pkg-config --cflags gtk+-2.0` `pkg-config --libs gtk+-2.0` -ggdb -g 
+
+
+
 arena.o: src/arena.c 
 	gcc -c src/arena.c -o build/arena.o -ggdb -g 
 

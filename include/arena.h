@@ -50,13 +50,20 @@ struct arena_h {
   size_t size;
 };
 struct arena_f {
-  unsigned next;
+  void * next;
   char magic_f;
 };
+#define _ARENA_EXTND_MUL_PREV 2
+#define _ARENA_EXTND_EXP_PREV 0
+#define _ARENA_EXTND_ADD_FIXED 0
+#define _ARENA_EXTND_NEEDED_ONLY 0
 
 void * init_arena(size_t);
 void * _arena_has_next(struct arena_h*);
 void * _arena_free_block(size_t, struct arena_h *);
 void arena_dump(struct arena_h *);
+void _extend_arena(size_t size);
+void * _next_arena(struct arena_h * );
+void arenas_dump();
 
 #endif

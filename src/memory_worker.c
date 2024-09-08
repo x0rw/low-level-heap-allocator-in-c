@@ -16,12 +16,14 @@ void merge_alloc_blocks(struct arena_h * arena){
 
 }
 void * _run_order(void * args){
-    printf("arena_base %p", arena_base);
-
+    while(1){
+        merge_alloc_blocks(arena_base);
+        sleep(ALLOC_FREQ_SEC);
+    }
 }
 void init_worker(){
     pthread_t pt;
     void * res;
     pthread_create(&pt,NULL,&_run_order, NULL);
-    pthread_join(pt, &res);
+//    pthread_join(pt, &res);
 }
