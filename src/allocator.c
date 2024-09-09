@@ -8,7 +8,6 @@ void * allocate(size_t size){
     exit(-1);
   }
   ab->reserved= 1;
-  ab->size = size;
   return (void *) ab+sizeof(struct alloc_block);
 }
 void free_alloc(void * block){
